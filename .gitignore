@@ -297,3 +297,6 @@ aurelia-app/src/environment.ts
 platforms/
 /www/**
 config.xml
+
+#Plugin specific
+dist
