@@ -38,4 +38,9 @@ gulp.task("sass", function() {
     .pipe(gulp.dest("dist/system"));
 });
 
-gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass"]);
+gulp.task("copyToTestProject", function(){
+  return gulp.src("**")
+    .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));
+})
+
+gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "copyToTestProject"]);
