@@ -38,9 +38,22 @@ gulp.task("sass", function() {
     .pipe(gulp.dest("dist/system"));
 });
 
-gulp.task("copyToTestProject", function(){
-  return gulp.src("**")
-    .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));
+gulp.task('tinymce:src', function(){
+  return gulp.src("node_modules/tinymce/**")
+    .pipe(gulp.dest("dist/amd/tinymce"))
+    .pipe(gulp.dest("dist/commonjs/tinymce"))
+    .pipe(gulp.dest("dist/es2015/tinymce"))
+    .pipe(gulp.dest("dist/native-modules/tinymce"))
+    .pipe(gulp.dest("dist/system/tinymce"));
 })
 
-gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "copyToTestProject"]);
+//gulp.task("copyToTestProject", function(){
+//  return gulp.src("**/*", {base: '.'})
+//    .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));
+//});
+
+//gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "tinymce:src", "copyToTestProject"]);
+gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "tinymce:src"], function(){
+  return gulp.src("**/*", {base: '.'})
+  .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));
+});

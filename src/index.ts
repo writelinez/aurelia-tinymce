@@ -1,6 +1,10 @@
 import {FrameworkConfiguration} from 'aurelia-framework';
-export function configure(aurelia: FrameworkConfiguration) {
-    aurelia.globalResources([
+import {TinyMce} from './elements/tiny-mce/tiny-mce';
 
+export function configure(aurelia: FrameworkConfiguration) {
+
+    aurelia.globalResources([
+        './elements/tiny-mce/tiny-mce'
     ]);
 }
+export {TinyMce};
