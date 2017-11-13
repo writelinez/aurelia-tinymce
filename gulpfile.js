@@ -45,14 +45,8 @@ gulp.task('tinymce:src', function(){
     .pipe(gulp.dest("dist/es2015/tinymce"))
     .pipe(gulp.dest("dist/native-modules/tinymce"))
     .pipe(gulp.dest("dist/system/tinymce"));
-})
+});
 
-//gulp.task("copyToTestProject", function(){
-//  return gulp.src("**/*", {base: '.'})
-//    .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));
-//});
-
-//gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "tinymce:src", "copyToTestProject"]);
 gulp.task("default", ["copy:html", "copy:css", "copy:json", "sass", "tinymce:src"], function(){
   return gulp.src("**/*", {base: '.'})
   .pipe(gulp.dest("../aurelia-test-project/node_modules/aurelia-tinymce"));

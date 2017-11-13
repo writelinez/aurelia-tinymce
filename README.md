@@ -17,7 +17,7 @@ Aurelia TinyMCE HTML Editor Plugin
             ]
 }
 ```
-3. copy `node_modules/aurelia-tinymce/gulp-tasks/copy-tinymce-static-resources.ts` to `aurelia_project/tasks`
+3. copy `node_modules/aurelia-tinymce/au_gulp_tasks/copy-tinymce-static-resources.ts` to `aurelia_project/tasks`
 4. add the new build script to your build.ts file similar to what is shown here:
 ```javascript
 import copytinymcestaticresources from './copy-tinymce-static-resources';
