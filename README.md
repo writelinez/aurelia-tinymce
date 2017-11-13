@@ -35,3 +35,36 @@ let build = gulp.series(
   writeBundles
 );
 ```
+
+# Usage
+
+1. add the plugin to your main.ts file.
+```javascript
+import {Aurelia} from 'aurelia-framework'
+import environment from './environment';
+
+export function configure(aurelia: Aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .plugin('aurelia-tinymce') //<-- This guy
+    .feature('resources');
+
+  if (environment.debug) {
+    aurelia.use.developmentLogging();
+  }
+
+  if (environment.testing) {
+    aurelia.use.plugin('aurelia-testing');
+  }
+
+  aurelia.start().then(() => aurelia.setRoot());
+}
+```
+
+2. add the element to the view where you want to editor to go.
+```html
+<template>
+  <h1>My Html Editor</h1>
+  <tiny-mce theme="mobile" menubar="false"></tiny-mce>
+</template>
+```
