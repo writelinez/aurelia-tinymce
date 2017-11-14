@@ -1,6 +1,6 @@
 {
   "name": "aurelia-tinymce",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Aurelia plugin wrapper for TinyMCE. A WYSIWYG HTML Editor.",
   "keywords": [
     "WYSIWYG",
@@ -70,13 +70,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vheissu/aurelia-typescript-plugin.git"
+    "url": "git+https://github.com/writelinez/aurelia-tinymce.git"
   },
-  "author": "Dwayne Charrington <dwaynecharrington@gmail.com>",
+  "author": "Chris Bardsley (Write Linez LLC)",
   "license": "MIT",
-  "homepage": "https://github.com/Vheissu/aurelia-typescript-plugin#readme",
+  "homepage": "https://github.com/writelinez/aurelia-tinymce/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/Vheissu/aurelia-typescript-plugin/issues"
+    "url": "https://github.com/writelinez/aurelia-tinymce/issues"
   },
   "jspm": {
     "registry": "npm",

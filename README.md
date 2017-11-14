@@ -17,24 +17,9 @@ Aurelia TinyMCE HTML Editor Plugin
             ]
 }
 ```
-3. copy `node_modules/aurelia-tinymce/au_gulp_tasks/copy-tinymce-static-resources.ts` to `aurelia_project/tasks`
-4. add the new build script to your build.ts file similar to what is shown here:
-```javascript
-import copytinymcestaticresources from './copy-tinymce-static-resources';
-import * as project from '../aurelia.json';
-
-let build = gulp.series(
-  readProjectConfiguration,
-  gulp.parallel(
-    transpile,
-    processMarkup,
-    processCSS,
-    copyFiles,
-    copytinymcestaticresources
-  ),
-  writeBundles
-);
-```
+3. create a `fonts` and `img` directory in the root of your project (if you dont already have them).
+4. copy the contents of `node_modules/aurelia-tinymce/dist/amd/tinymce/fonts` to the `fonts` folder you created.
+5. copy the contents of `node_modules/aurelia-tinymce/dist/amd/tinymce/img` to the `img` folder you created.
 
 # Usage
 
@@ -46,7 +31,7 @@ import environment from './environment';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin('aurelia-tinymce') //<-- This guy
+    .plugin('aurelia-tinymce') //<-- This line
     .feature('resources');
 
   if (environment.debug) {
@@ -65,6 +50,6 @@ export function configure(aurelia: Aurelia) {
 ```html
 <template>
   <h1>My Html Editor</h1>
-  <tiny-mce theme="mobile" menubar="false"></tiny-mce>
+  <tiny-mce theme="mobile" menubar="false" content="hello world"></tiny-mce> <!--This line-->
 </template>
 ```
