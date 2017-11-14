@@ -1,4 +1,4 @@
-import { customElement, bindable } from "aurelia-framework";
+import { customElement, bindable, inject } from "aurelia-framework";
 import {Guid} from '../../core/utilities/guid';
 import '../../tinymce/tinymce';
 import '../../tinymce/plugins/link/plugin';
@@ -11,18 +11,21 @@ import { setTimeout } from "timers";
 declare var tinymce:any;
 
 @customElement('tiny-mce')
+@inject(Element)
 export class TinyMce
 {
     @bindable theme:string = 'modern'; //modern, mobile, inline
     @bindable menubar:boolean = true;
     @bindable content:string = '';
 
+    private element:Element;
+
     private editorId:string = '';
     private editorInstance:any = null;
     private attachCount:number;
 
-    constructor(){
-        
+    constructor(element){
+        this.element = element;
     }
 
     bind(){
@@ -62,8 +65,15 @@ export class TinyMce
         }
     }
 
-    save(evt:any){
-        console.log(evt);
+    save(){
+        
+        let e = new CustomEvent('save', {
+            detail: {
+                editorContent: this.editorInstance.getContent()
+            },
+            bubbles: true
+        });
+        this.element.dispatchEvent(e);        
     }
 
     private setEditorId(){

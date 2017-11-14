@@ -50,6 +50,6 @@ export function configure(aurelia: Aurelia) {
 ```html
 <template>
   <h1>My Html Editor</h1>
-  <tiny-mce theme="mobile" menubar="false" content="hello world"></tiny-mce> <!--This line-->
+  <tiny-mce theme="mobile" menubar="false" content="hello world" save.delegate="saveContent($event)"></tiny-mce> <!--This line-->
 </template>
 ```
